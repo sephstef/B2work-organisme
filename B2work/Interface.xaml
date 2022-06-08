@@ -1,0 +1,307 @@
+﻿<Window x:Class="B2work.Interface"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:B2work"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="#FFFAFAFA"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Interface" Height="900" Width="1600"
+        MinHeight="900" MinWidth="1200"
+        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames 
+                    Storyboard.TargetProperty="(FrameworkElement.Width)" 
+                    Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame 
+                        KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame 
+                        KeyTime="0:0:0.5" Value="345"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard 
+                x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames 
+                    Storyboard.TargetProperty="(FrameworkElement.Width)" 
+                    Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame 
+                        KeyTime="0" Value="345"/>
+                <EasingDoubleKeyFrame 
+                        KeyTime="0:0:0.5" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger
+                RoutedEvent="ButtonBase.Click" 
+                SourceName="ButtonOpenMenu">
+            <BeginStoryboard 
+                    Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger 
+                RoutedEvent="ButtonBase.Click" 
+                SourceName="ButtonCloseMenu">
+            <BeginStoryboard 
+                    Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Menu -->
+
+        <Grid 
+            x:Name="GridMenu" 
+            Grid.Column="0"
+            Width="60" 
+            HorizontalAlignment="Left" 
+            Background="#FFB2DCD8">
+            <StackPanel>
+                <!-- Drawer button -->
+                <Grid 
+                    Grid.Row="0"
+                    Height="60" 
+                    Background="#FF46B6AC">
+                    <Button 
+                            x:Name="ButtonCloseMenu" 
+                            Width="60" Height="60" 
+                            Background="{x:Null}" 
+                            BorderBrush="{x:Null}" 
+                            VerticalAlignment="Top" 
+                            HorizontalAlignment="Right" 
+                            Visibility="Collapsed" 
+                            Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon 
+                            Kind="ArrowLeft" 
+                            Foreground="#FF040404" 
+                            Width="25" Height="25"/>
+                    </Button>
+                    <Button 
+                            x:Name="ButtonOpenMenu" 
+                            Width="60" Height="60" 
+                            Background="{x:Null}" 
+                            BorderBrush="{x:Null}" 
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right" 
+                            Click="ButtonOpenMenu_Click" 
+                            Foreground="#FF46B6AC">
+                        <materialDesign:PackIcon 
+                            Kind="Menu" 
+                            Foreground="Black" 
+                            Width="25" Height="25"/>
+                    </Button>
+                </Grid >
+
+                <!-- Menu list -->
+
+                <ListView Grid.Row="1"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                        Foreground="#FF46B6AC" VerticalAlignment="Bottom">
+                    <ListViewItem 
+                        x:Name="dashboardLVI"
+                        Height="60" 
+                        Selected="dashboardLVI_Selected">
+                        <StackPanel 
+                            Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Kind="ViewDashboard" 
+                                Width="30" Height="30" 
+                                Margin="10" 
+                                VerticalAlignment="Center" 
+                                Foreground="#FF46B6AC"/>
+                            <TextBlock 
+                                Text="Tableau de bord" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10" 
+                                FontSize="18" 
+                                Foreground="Black"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="usersListLVI"
+                        Height="60" 
+                        Selected="usersListLVI_Selected">
+                        <StackPanel 
+                            Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Kind="ClipboardAccountOutline" 
+                                Width="30" Height="30" 
+                                Margin="10" 
+                                VerticalAlignment="Center" 
+                                Foreground="#FF46B6AC"/>
+                            <TextBlock 
+                                Text="Dossiers suivis" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"
+                                FontSize="18" 
+                                Foreground="Black"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        Height="60" 
+                        x:Name="companiesListLVI" 
+                        Selected="companiesListLVI_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Kind="Notebook" 
+                                Width="30" 
+                                Height="30" 
+                                Margin="10" 
+                                VerticalAlignment="Center" 
+                                Foreground="#FF46B6AC"/>
+                            <TextBlock 
+                                Text="Répertoire entreprises" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"
+                                FontSize="18" 
+                                Foreground="Black"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem 
+                        Height="60" 
+                        x:Name="contactLVI" 
+                        Selected="contactLVI_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Kind="Message" 
+                                Width="30" Height="30" 
+                                Margin="10" 
+                                VerticalAlignment="Center" 
+                                Foreground="#FF46B6AC"/>
+                            <TextBlock 
+                                Text="Contacts" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"
+                                FontSize="18" 
+                                Foreground="Black"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem 
+                        Height="60" 
+                        x:Name="documentsLVI" 
+                        Selected="documentsLVI_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Kind="FolderOutline" 
+                                Width="30" 
+                                Height="30" 
+                                Margin="10" 
+                                VerticalAlignment="Center" 
+                                Foreground="#FF46B6AC"/>
+                            <TextBlock 
+                                Text="Mes documents" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"
+                                FontSize="18" 
+                                Foreground="Black"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        Height="60"
+                        x:Name="appoitmentsLVI"
+                        Selected="appoitmentsLVI_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Kind="CalendarMonthOutline" 
+                                Width="30" 
+                                Height="30" 
+                                Margin="10" 
+                                VerticalAlignment="Center" 
+                                Foreground="#FF46B6AC"/>
+                            <TextBlock 
+                                Text="Mes Rendez-vous" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"
+                                FontSize="18" 
+                                Foreground="Black"/>
+
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+                <!-- Logo -->
+
+                <Image x:Name="Logo" 
+                       Grid.Row="2" 
+                       Height="80" 
+                       Width="80" 
+                       Source="/b2workLogoLight.png" 
+                       Stretch="Fill" Margin="0,10,0,10">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="/b2workLogoLight.png"/>
+                    </Image.OpacityMask>
+                </Image>
+
+                <!-- Calendar -->
+
+                <Grid 
+                    x:Name="CalendarMenu"
+                    Grid.Row="3" 
+                    Width="345"
+                    HorizontalAlignment="Center" 
+                    Margin="0,10,0,0" 
+                    VerticalAlignment="Top">
+                    <Grid.Resources>
+                        <Style
+                                x:Key="CustomCalendarDayButton"
+                                TargetType="CalendarDayButton"
+                                BasedOn="{StaticResource MaterialDesignCalendarDayButton}">
+                            <Setter
+                                    Property="materialDesign:CalendarAssist.SelectionColor"
+                                    Value="#FFB2DCD8" />
+                            <Setter
+                                    Property="materialDesign:CalendarAssist.SelectionForegroundColor"
+                                    Value="Black" />
+                        </Style>
+                        <Style
+                                x:Key="CustomCalendarButton"
+                                TargetType="CalendarButton"
+                                BasedOn="{StaticResource MaterialDesignCalendarButton}">
+                            <Setter
+                                    Property="materialDesign:CalendarAssist.SelectionColor"
+                                    Value="#FFB2DCD8" />
+                            <Setter
+                                    Property="materialDesign:CalendarAssist.SelectionForegroundColor"
+                                    Value="Black" />
+                        </Style>
+                    </Grid.Resources>
+                    <Calendar
+                            Language="fr-EU"
+                            Background="#FFB2DCD8"
+                            Foreground="Black"
+                            materialDesign:CalendarAssist.HeaderBackground="#FF46B6AC"
+                            materialDesign:CalendarAssist.HeaderForeground="Black"
+                            CalendarDayButtonStyle="{StaticResource CustomCalendarDayButton}"
+                            CalendarButtonStyle="{StaticResource CustomCalendarButton}" 
+                            VerticalAlignment="Top" HorizontalAlignment="Center" Width="345" />
+                </Grid>
+
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200*"/>
+                <RowDefinition Height="671*"/>
+            </Grid.RowDefinitions>
+            <Frame x:Name="Content"
+                   NavigationUIVisibility="Hidden" Margin="140,0,137,0" Grid.RowSpan="2"/>
+        </Grid>
+
+    </Grid>
+</Window>

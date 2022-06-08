@@ -1,0 +1,99 @@
+﻿<Page 
+    x:Class="B2work.AjoutUtilisateur"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:B2work"
+    mc:Ignorable="d" 
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextElement.FontWeight="Regular"
+    TextElement.FontSize="13"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    d:DesignHeight="900" d:DesignWidth="1255"
+    Title="Ajout Utilisateur">
+
+    <Grid Background="#FFFAFAFA">
+        <Label Content="CRÉATION UTILISATEUR" HorizontalAlignment="Left" Height="56" Margin="435,22,0,0" VerticalAlignment="Top" Width="342" FontSize="30" BorderBrush="Black" BorderThickness="0,0,0,2" FontFamily="Segoe UI"/>
+        <Label Content="CRÉATION DU PROFIL" HorizontalAlignment="Left" Margin="251,115,0,0" VerticalAlignment="Top" Height="34" Width="168" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="16" FontFamily="Segoe UI"/>
+        <TextBox
+        x:Name="lastname"
+        materialDesign:HintAssist.Hint="Nom"
+        materialDesign:HintAssist.HelperText="Le nom doit faire entre 3 et 50 caractères" 
+        Margin="221,202,684,646" Text="" FontFamily="Segoe UI" Cursor="IBeam" FontSize="18">
+        </TextBox>
+        <TextBox
+        x:Name="firstname"
+        materialDesign:HintAssist.Hint="Prénom"
+        materialDesign:HintAssist.HelperText="Le prénom doit faire entre 3 et 50 caractères" 
+        Margin="712,202,193,646" Text="" FontFamily="Segoe UI" FontSize="18" Cursor="IBeam"/>
+        <TextBox
+        x:Name="account"
+        materialDesign:HintAssist.Hint="N° compte"
+        materialDesign:HintAssist.HelperText="veuillez entrer le numéro de compte" 
+        Margin="221,316,684,530" Text="" FontFamily="Segoe UI" FontSize="18" Cursor="IBeam"/>
+        <TextBox
+        x:Name="phone"
+        materialDesign:HintAssist.Hint="numéro de téléphone"
+        materialDesign:HintAssist.HelperText="veuillez entrer un numéro de téléphone" 
+        Margin="712,316,193,529" Text="" FontFamily="Segoe UI" FontSize="18" Cursor="IBeam"/>
+        <TextBox
+        x:Name="postalCode"
+        materialDesign:HintAssist.Hint="Code postal"
+        materialDesign:HintAssist.HelperText="veuillez entrer le code postal" 
+        Margin="221,534,684,310" Text="" FontFamily="Segoe UI" FontSize="18" Cursor="IBeam"/>
+        <TextBox
+        x:Name="city"
+        materialDesign:HintAssist.Hint="Ville"
+        materialDesign:HintAssist.HelperText="veuillez entrer la commune" 
+        Margin="712,536,193,310" Text="" FontFamily="Segoe UI" FontSize="18" Cursor="IBeam"/>
+        <TextBox
+        x:Name="mail"
+        materialDesign:HintAssist.Hint="Adresse mail"
+        materialDesign:HintAssist.HelperText="veuillez entrer une adresse mail" 
+        Margin="221,422,193,422" Text="" FontFamily="Segoe UI" FontSize="18" Cursor="IBeam"/>
+        <TextBox
+        x:Name="address"
+        materialDesign:HintAssist.Hint="Adresse"
+        materialDesign:HintAssist.HelperText="veuillez entrer une adresse" 
+        Margin="221,651,193,197" Text="" Cursor="IBeam" FontFamily="Segoe UI" FontSize="18"/>
+
+        <Button
+        Style="{StaticResource MaterialDesignRaisedButton}"
+        ToolTip="Resource name: MaterialDesignRaisedButton"
+        Content="VALIDER"
+        x:Name="ValidationBTN"
+        Margin="788,809,0,0" 
+        Foreground="#DD000000" 
+        Cursor="Hand" Width="274" 
+        Height="45" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Top" FontFamily="Segoe UI" Click="ValidationBTN_Click" />
+        <Button
+        Style="{StaticResource MaterialDesignRaisedButton}"
+        Height="44"
+        x:Name="CancelBTN"
+        Width="273"
+        ToolTip="Resource name: MaterialDesignRaisedButton"
+        Content="ANNULER"
+        Margin="221,814,0,0" Foreground="#DD000000" 
+        Cursor="Hand" Background="#FF98A2A1" 
+        HorizontalAlignment="Left" VerticalAlignment="Top" 
+        FontFamily="Segoe UI" Click="CancelBTN_Click" />
+        <Button
+        Style="{StaticResource MaterialDesignRaisedButton}"
+        ToolTip="Resource name: MaterialDesignRaisedButton"
+        x:Name="addNewOrganisationBTN"
+        Content="AJOUTER ORGANISME" 
+        Margin="504,743,0,0" 
+        Foreground="#DD000000" 
+        Cursor="Hand" Width="274" 
+        Height="46" HorizontalAlignment="Left" 
+        VerticalAlignment="Top" FontFamily="Segoe UI" Click="AddNewOrganisationBTN_Click" />
+
+    </Grid>
+</Page>

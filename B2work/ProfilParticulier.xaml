@@ -1,0 +1,67 @@
+﻿<Page x:Class="B2work.ProfilParticulier"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:B2work"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextElement.FontWeight="Regular"
+    TextElement.FontSize="13"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    d:DesignHeight="900" d:DesignWidth="1255"
+    Title="Profil Particulier">
+
+    <Grid>
+        <materialDesign:Card Margin="183,626,181,28" Background="#B2DCD8">
+            <Grid Height="246" VerticalAlignment="Center">
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    Width="370"
+                    x:Name="deleteOrganisationBTN"
+                    Height="40"
+                    Background="#46B6AC"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                    Content="supprimer organisme"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="260,32,261,174" Cursor="Hand"   />
+
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    Width="370"
+                    Height="65"
+                    x:Name="updateProfileBTN"
+                    Background="#46B6AC"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                    Content="Modifier le profil"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="28,123,496,58"  />
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    Width="370"
+                    x:Name="deleteProfileBTN"
+                    Height="65"
+                    Background="#46B6AC"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                    Content="Supprimer le profil"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="484,123,40,58"  />
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card Margin="183,34,181,354" Background="#B2DCD8">
+            <Grid Margin="446,0,0,0">
+                <TextBlock x:Name="organistionName" HorizontalAlignment="Left" Height="62" Margin="31,40,0,0" Text="NOM ORGANISME"  TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="24"/>
+                <TextBlock x:Name="counselorName" HorizontalAlignment="Left" Height="62" Margin="31,130,0,0" Text="NOM CONSEILLER" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="24"/>
+                <TextBlock x:Name="counselorMail" HorizontalAlignment="Left" Height="62" Margin="31,0,0,0" Text="MAIL CONSEILLER" TextWrapping="Wrap" VerticalAlignment="Center" Width="404" FontSize="24"/>
+                <TextBlock x:Name="counselorPhone" HorizontalAlignment="Left" Height="62" Margin="31,328,0,0" Text="N° TÉLÉPHONE CONSEILLER" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="24"/>
+                <TextBlock x:Name="organisationAccount" HorizontalAlignment="Left" Height="62" Margin="31,420,0,0" Text="N° COMPTE INSCRIT" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="24"/>
+                <TextBlock x:Name="userName" HorizontalAlignment="Left" Height="62" Margin="-435,40,0,0" Text="IDENTITÉ DE L'INSCRIT" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="24"/>
+                <TextBlock x:Name="userMail" HorizontalAlignment="Left" Height="62" Margin="-435,130,0,0" Text="MAIL DE L'INSCRIT" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="24"/>
+                <TextBlock x:Name="userAccount" HorizontalAlignment="Left" Height="62" Margin="-435,0,0,0" Text="N° DE COMPTE DE L'INSCRIT" TextWrapping="Wrap" VerticalAlignment="Center" Width="404" FontSize="24"/>
+                <TextBlock x:Name="userPhone" HorizontalAlignment="Left" Height="62" Margin="-435,328,0,0" Text="N° DE TÉLÉPHONE DE L'INSCRIT" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="24"/>
+                <TextBlock x:Name="userAddress" HorizontalAlignment="Left" Height="62" Margin="-435,420,0,0" Text="ADRESSE DE L'INSCRIT" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontSize="24"/>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Page>

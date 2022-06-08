@@ -1,0 +1,89 @@
+﻿<Page 
+    x:Class="B2work.Demarches"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:B2work"
+    mc:Ignorable="d"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextElement.FontWeight="Regular"
+    TextElement.FontSize="13"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    d:DesignHeight="900" d:DesignWidth="1255"
+    Title="Démarches du particulier">
+
+    <Grid>
+        <Label 
+            Content="DÉMARCHE DU PARTICULIER" 
+            HorizontalAlignment="Center" 
+            Height="56" Margin="0,49,0,0" 
+            VerticalAlignment="Top" 
+            Width="393" FontSize="30" 
+            BorderBrush="Black" 
+            BorderThickness="0,0,0,2" 
+            FontFamily="Segoe UI"/>
+        <Label 
+            Content="Jean-Pierre Detaille" 
+            HorizontalAlignment="Left" 
+            Margin="453,170,0,0" 
+            VerticalAlignment="Top"
+            Height="34" Width="254" 
+            BorderThickness="0,0,0,0" 
+            BorderBrush="Black" 
+            FontSize="18" 
+            FontFamily="Segoe UI"
+            x:Name="userName"
+            Background="{x:Null}"/>
+        <Label 
+            Content="Particulier :"
+            HorizontalAlignment="Left" 
+            Margin="352,170,0,0" 
+            VerticalAlignment="Top" 
+            Height="34" Width="96" 
+            BorderThickness="0,0,0,1" 
+            BorderBrush="Black" 
+            FontSize="18" FontFamily="Segoe UI" 
+            Background="{x:Null}"/>
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            ToolTip="Resource name: MaterialDesignRaisedButton"
+            Content="CONTACTER"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" 
+            Margin="674,172,0,0" 
+            Foreground="#DD000000" 
+            Cursor="Hand" Width="200" 
+            Height="32" HorizontalAlignment="Left" 
+            x:Name="sendMessageBTN"
+            VerticalAlignment="Top" FontFamily="Segoe UI" Click="sendMessageBTN_Click" 
+             />
+        <!-- Click="Button_Click" -->
+        <Label 
+            Content="Liste des démarches" 
+            HorizontalAlignment="Left" 
+            Margin="228,258,0,0" 
+            VerticalAlignment="Top" 
+            Height="34" Width="172" 
+            BorderThickness="0,0,0,1" 
+            BorderBrush="Black" FontSize="18" 
+            FontFamily="Segoe UI" Background="{x:Null}"/>
+        <DataGrid 
+            HorizontalAlignment="Left" 
+            Height="380" Margin="228,365,0,0" 
+            VerticalAlignment="Top" Width="802" 
+            Background="#FFB2DCD8" FontFamily="Segoe UI" 
+            FontSize="16" BorderThickness="5,5,5,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "Nom du document" Binding="{Binding fileName}" />
+                <DataGridTextColumn Header = "Date de reception" Binding="{Binding receptionDate}" />
+                <DataGridTextColumn Header = "Voir le document" Binding="{Binding seeFile}" />
+                <DataGridTextColumn Header = "Supprimer le document" Binding="{Binding deleteFile}" />
+                <materialDesign:DataGridComboBoxColumn/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

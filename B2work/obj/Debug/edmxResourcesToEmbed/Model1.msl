@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities1">
+    <EntitySetMapping Name="x74jp_advisers">
+      <EntityTypeMapping TypeName="Database1Model.x74jp_advisers">
+        <MappingFragment StoreEntitySet="x74jp_advisers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="x74jp_appointement">
+      <EntityTypeMapping TypeName="Database1Model.x74jp_appointement">
+        <MappingFragment StoreEntitySet="x74jp_appointement">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="objet" ColumnName="objet" />
+          <ScalarProperty Name="id_x74jp_registered" ColumnName="id_x74jp_registered" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="x74jp_company">
+      <EntityTypeMapping TypeName="Database1Model.x74jp_company">
+        <MappingFragment StoreEntitySet="x74jp_company">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="x74jp_documents">
+      <EntityTypeMapping TypeName="Database1Model.x74jp_documents">
+        <MappingFragment StoreEntitySet="x74jp_documents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="document" ColumnName="document" />
+          <ScalarProperty Name="receiptDate" ColumnName="receiptDate" />
+          <ScalarProperty Name="id_x74jp_advisers" ColumnName="id_x74jp_advisers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="x74jp_organization">
+      <EntityTypeMapping TypeName="Database1Model.x74jp_organization">
+        <MappingFragment StoreEntitySet="x74jp_organization">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="adviser" ColumnName="adviser" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="id_x74jp_registered" ColumnName="id_x74jp_registered" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="x74jp_registered">
+      <EntityTypeMapping TypeName="Database1Model.x74jp_registered">
+        <MappingFragment StoreEntitySet="x74jp_registered">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="account" ColumnName="account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="x74jp_userTypes">
+      <EntityTypeMapping TypeName="Database1Model.x74jp_userTypes">
+        <MappingFragment StoreEntitySet="x74jp_userTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="registered_have_advisers" TypeName="Database1Model.registered_have_advisers" StoreEntitySet="registered_have_advisers">
+      <EndProperty Name="x74jp_advisers">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <EndProperty Name="x74jp_registered">
+        <ScalarProperty Name="id" ColumnName="id_x74jp_registered" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="registered_have_company" TypeName="Database1Model.registered_have_company" StoreEntitySet="registered_have_company">
+      <EndProperty Name="x74jp_company">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <EndProperty Name="x74jp_registered">
+        <ScalarProperty Name="id" ColumnName="id_x74jp_registered" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

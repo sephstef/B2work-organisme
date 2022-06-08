@@ -1,0 +1,47 @@
+﻿<Page x:Class="B2work.Documents"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:B2work"
+      mc:Ignorable="d" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextElement.FontWeight="Regular"
+    TextElement.FontSize="13"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    d:DesignHeight="900" d:DesignWidth="1255"
+      Title="Mes documents">
+
+    <Grid>
+        <Label 
+            Content="MES DOCUMENTS&#xD;&#xA;" 
+            HorizontalAlignment="Center" 
+            Height="56" Margin="0,49,0,0" 
+            VerticalAlignment="Top" 
+            Width="259" FontSize="30" 
+            BorderBrush="Black" 
+            BorderThickness="0,0,0,2" 
+            FontFamily="Segoe UI"/>
+        <DataGrid 
+            HorizontalAlignment="Center" 
+            Height="637" Margin="0,189,0,0" 
+            VerticalAlignment="Top" Width="1161" 
+            Background="#FFB2DCD8" FontFamily="Segoe UI" 
+            FontSize="18" BorderThickness="5,5,5,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "Nom de l'envoyeur" Binding="{Binding lastname}" />
+                <DataGridTextColumn Header = "Prénom de l'envoyeur" Binding="{Binding firstname}" />
+                <DataGridTextColumn Header = "N° de dossier" Binding="{Binding account}" />
+                <DataGridTextColumn Header = "Nom du document" Binding="{Binding fileName}" />
+                <DataGridTextColumn Header = "Date de reception" Binding="{Binding receptionDate}" />
+                <DataGridTextColumn Header = "Voir le document" Binding="{Binding seeFile}" />
+                <materialDesign:DataGridComboBoxColumn/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

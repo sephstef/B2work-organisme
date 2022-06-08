@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="registered_have_advisers">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="id_x74jp_registered" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id_x74jp_registered" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="registered_have_company">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="id_x74jp_registered" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id_x74jp_registered" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x74jp_advisers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mail" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x74jp_appointement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="objet" Type="text" Nullable="false" />
+          <Property Name="id_x74jp_registered" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x74jp_company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mail" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="website" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="comment" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x74jp_documents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="document" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="receiptDate" Type="datetime" Nullable="false" />
+          <Property Name="id_x74jp_advisers" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x74jp_organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adviser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mail" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="accountNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_x74jp_registered" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x74jp_registered">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mail" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="account" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="x74jp_userTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="registered_have_advisers_x74jp_advisers_FK">
+          <End Role="x74jp_advisers" Type="Self.x74jp_advisers" Multiplicity="1" />
+          <End Role="registered_have_advisers" Type="Self.registered_have_advisers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_advisers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registered_have_advisers">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="registered_have_advisers_x74jp_registered0_FK">
+          <End Role="x74jp_registered" Type="Self.x74jp_registered" Multiplicity="1" />
+          <End Role="registered_have_advisers" Type="Self.registered_have_advisers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_registered">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registered_have_advisers">
+              <PropertyRef Name="id_x74jp_registered" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="registered_have_company_x74jp_company_FK">
+          <End Role="x74jp_company" Type="Self.x74jp_company" Multiplicity="1" />
+          <End Role="registered_have_company" Type="Self.registered_have_company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_company">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registered_have_company">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="registered_have_company_x74jp_registered0_FK">
+          <End Role="x74jp_registered" Type="Self.x74jp_registered" Multiplicity="1" />
+          <End Role="registered_have_company" Type="Self.registered_have_company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_registered">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registered_have_company">
+              <PropertyRef Name="id_x74jp_registered" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="x74jp_appointement_x74jp_registered_FK">
+          <End Role="x74jp_registered" Type="Self.x74jp_registered" Multiplicity="1" />
+          <End Role="x74jp_appointement" Type="Self.x74jp_appointement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_registered">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="x74jp_appointement">
+              <PropertyRef Name="id_x74jp_registered" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="x74jp_documents_x74jp_advisers_FK">
+          <End Role="x74jp_advisers" Type="Self.x74jp_advisers" Multiplicity="1" />
+          <End Role="x74jp_documents" Type="Self.x74jp_documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_advisers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="x74jp_documents">
+              <PropertyRef Name="id_x74jp_advisers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="x74jp_organization_x74jp_registered_FK">
+          <End Role="x74jp_registered" Type="Self.x74jp_registered" Multiplicity="1" />
+          <End Role="x74jp_organization" Type="Self.x74jp_organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_registered">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="x74jp_organization">
+              <PropertyRef Name="id_x74jp_registered" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="registered_have_advisers" EntityType="Self.registered_have_advisers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registered_have_company" EntityType="Self.registered_have_company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x74jp_advisers" EntityType="Self.x74jp_advisers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x74jp_appointement" EntityType="Self.x74jp_appointement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x74jp_company" EntityType="Self.x74jp_company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x74jp_documents" EntityType="Self.x74jp_documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x74jp_organization" EntityType="Self.x74jp_organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x74jp_registered" EntityType="Self.x74jp_registered" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="x74jp_userTypes" EntityType="Self.x74jp_userTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="registered_have_advisers_x74jp_advisers_FK" Association="Self.registered_have_advisers_x74jp_advisers_FK">
+            <End Role="x74jp_advisers" EntitySet="x74jp_advisers" />
+            <End Role="registered_have_advisers" EntitySet="registered_have_advisers" />
+          </AssociationSet>
+          <AssociationSet Name="registered_have_advisers_x74jp_registered0_FK" Association="Self.registered_have_advisers_x74jp_registered0_FK">
+            <End Role="x74jp_registered" EntitySet="x74jp_registered" />
+            <End Role="registered_have_advisers" EntitySet="registered_have_advisers" />
+          </AssociationSet>
+          <AssociationSet Name="registered_have_company_x74jp_company_FK" Association="Self.registered_have_company_x74jp_company_FK">
+            <End Role="x74jp_company" EntitySet="x74jp_company" />
+            <End Role="registered_have_company" EntitySet="registered_have_company" />
+          </AssociationSet>
+          <AssociationSet Name="registered_have_company_x74jp_registered0_FK" Association="Self.registered_have_company_x74jp_registered0_FK">
+            <End Role="x74jp_registered" EntitySet="x74jp_registered" />
+            <End Role="registered_have_company" EntitySet="registered_have_company" />
+          </AssociationSet>
+          <AssociationSet Name="x74jp_appointement_x74jp_registered_FK" Association="Self.x74jp_appointement_x74jp_registered_FK">
+            <End Role="x74jp_registered" EntitySet="x74jp_registered" />
+            <End Role="x74jp_appointement" EntitySet="x74jp_appointement" />
+          </AssociationSet>
+          <AssociationSet Name="x74jp_documents_x74jp_advisers_FK" Association="Self.x74jp_documents_x74jp_advisers_FK">
+            <End Role="x74jp_advisers" EntitySet="x74jp_advisers" />
+            <End Role="x74jp_documents" EntitySet="x74jp_documents" />
+          </AssociationSet>
+          <AssociationSet Name="x74jp_organization_x74jp_registered_FK" Association="Self.x74jp_organization_x74jp_registered_FK">
+            <End Role="x74jp_registered" EntitySet="x74jp_registered" />
+            <End Role="x74jp_organization" EntitySet="x74jp_organization" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="x74jp_advisers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="x74jp_documents" Relationship="Self.x74jp_documents_x74jp_advisers_FK" FromRole="x74jp_advisers" ToRole="x74jp_documents" />
+          <NavigationProperty Name="x74jp_registered" Relationship="Self.registered_have_advisers" FromRole="x74jp_advisers" ToRole="x74jp_registered" />
+        </EntityType>
+        <EntityType Name="x74jp_appointement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="objet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_x74jp_registered" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="x74jp_registered" Relationship="Self.x74jp_appointement_x74jp_registered_FK" FromRole="x74jp_appointement" ToRole="x74jp_registered" />
+        </EntityType>
+        <EntityType Name="x74jp_company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="x74jp_registered" Relationship="Self.registered_have_company" FromRole="x74jp_company" ToRole="x74jp_registered" />
+        </EntityType>
+        <EntityType Name="x74jp_documents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="document" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="receiptDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_x74jp_advisers" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="x74jp_advisers" Relationship="Self.x74jp_documents_x74jp_advisers_FK" FromRole="x74jp_documents" ToRole="x74jp_advisers" />
+        </EntityType>
+        <EntityType Name="x74jp_organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adviser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_x74jp_registered" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="x74jp_registered" Relationship="Self.x74jp_organization_x74jp_registered_FK" FromRole="x74jp_organization" ToRole="x74jp_registered" />
+        </EntityType>
+        <EntityType Name="x74jp_registered">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="x74jp_appointement" Relationship="Self.x74jp_appointement_x74jp_registered_FK" FromRole="x74jp_registered" ToRole="x74jp_appointement" />
+          <NavigationProperty Name="x74jp_organization" Relationship="Self.x74jp_organization_x74jp_registered_FK" FromRole="x74jp_registered" ToRole="x74jp_organization" />
+          <NavigationProperty Name="x74jp_advisers" Relationship="Self.registered_have_advisers" FromRole="x74jp_registered" ToRole="x74jp_advisers" />
+          <NavigationProperty Name="x74jp_company" Relationship="Self.registered_have_company" FromRole="x74jp_registered" ToRole="x74jp_company" />
+        </EntityType>
+        <EntityType Name="x74jp_userTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="x74jp_documents_x74jp_advisers_FK">
+          <End Role="x74jp_advisers" Type="Self.x74jp_advisers" Multiplicity="1" />
+          <End Role="x74jp_documents" Type="Self.x74jp_documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_advisers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="x74jp_documents">
+              <PropertyRef Name="id_x74jp_advisers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="x74jp_appointement_x74jp_registered_FK">
+          <End Role="x74jp_registered" Type="Self.x74jp_registered" Multiplicity="1" />
+          <End Role="x74jp_appointement" Type="Self.x74jp_appointement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_registered">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="x74jp_appointement">
+              <PropertyRef Name="id_x74jp_registered" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="x74jp_organization_x74jp_registered_FK">
+          <End Role="x74jp_registered" Type="Self.x74jp_registered" Multiplicity="1" />
+          <End Role="x74jp_organization" Type="Self.x74jp_organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="x74jp_registered">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="x74jp_organization">
+              <PropertyRef Name="id_x74jp_registered" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="registered_have_advisers">
+          <End Role="x74jp_advisers" Type="Self.x74jp_advisers" Multiplicity="*" />
+          <End Role="x74jp_registered" Type="Self.x74jp_registered" Multiplicity="*" />
+        </Association>
+        <Association Name="registered_have_company">
+          <End Role="x74jp_company" Type="Self.x74jp_company" Multiplicity="*" />
+          <End Role="x74jp_registered" Type="Self.x74jp_registered" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Database1Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="x74jp_advisers" EntityType="Self.x74jp_advisers" />
+          <EntitySet Name="x74jp_appointement" EntityType="Self.x74jp_appointement" />
+          <EntitySet Name="x74jp_company" EntityType="Self.x74jp_company" />
+          <EntitySet Name="x74jp_documents" EntityType="Self.x74jp_documents" />
+          <EntitySet Name="x74jp_organization" EntityType="Self.x74jp_organization" />
+          <EntitySet Name="x74jp_registered" EntityType="Self.x74jp_registered" />
+          <EntitySet Name="x74jp_userTypes" EntityType="Self.x74jp_userTypes" />
+          <AssociationSet Name="x74jp_documents_x74jp_advisers_FK" Association="Self.x74jp_documents_x74jp_advisers_FK">
+            <End Role="x74jp_advisers" EntitySet="x74jp_advisers" />
+            <End Role="x74jp_documents" EntitySet="x74jp_documents" />
+          </AssociationSet>
+          <AssociationSet Name="x74jp_appointement_x74jp_registered_FK" Association="Self.x74jp_appointement_x74jp_registered_FK">
+            <End Role="x74jp_registered" EntitySet="x74jp_registered" />
+            <End Role="x74jp_appointement" EntitySet="x74jp_appointement" />
+          </AssociationSet>
+          <AssociationSet Name="x74jp_organization_x74jp_registered_FK" Association="Self.x74jp_organization_x74jp_registered_FK">
+            <End Role="x74jp_registered" EntitySet="x74jp_registered" />
+            <End Role="x74jp_organization" EntitySet="x74jp_organization" />
+          </AssociationSet>
+          <AssociationSet Name="registered_have_advisers" Association="Self.registered_have_advisers">
+            <End Role="x74jp_advisers" EntitySet="x74jp_advisers" />
+            <End Role="x74jp_registered" EntitySet="x74jp_registered" />
+          </AssociationSet>
+          <AssociationSet Name="registered_have_company" Association="Self.registered_have_company">
+            <End Role="x74jp_company" EntitySet="x74jp_company" />
+            <End Role="x74jp_registered" EntitySet="x74jp_registered" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities1">
+          <EntitySetMapping Name="x74jp_advisers">
+            <EntityTypeMapping TypeName="Database1Model.x74jp_advisers">
+              <MappingFragment StoreEntitySet="x74jp_advisers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x74jp_appointement">
+            <EntityTypeMapping TypeName="Database1Model.x74jp_appointement">
+              <MappingFragment StoreEntitySet="x74jp_appointement">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="objet" ColumnName="objet" />
+                <ScalarProperty Name="id_x74jp_registered" ColumnName="id_x74jp_registered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x74jp_company">
+            <EntityTypeMapping TypeName="Database1Model.x74jp_company">
+              <MappingFragment StoreEntitySet="x74jp_company">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x74jp_documents">
+            <EntityTypeMapping TypeName="Database1Model.x74jp_documents">
+              <MappingFragment StoreEntitySet="x74jp_documents">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="document" ColumnName="document" />
+                <ScalarProperty Name="receiptDate" ColumnName="receiptDate" />
+                <ScalarProperty Name="id_x74jp_advisers" ColumnName="id_x74jp_advisers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x74jp_organization">
+            <EntityTypeMapping TypeName="Database1Model.x74jp_organization">
+              <MappingFragment StoreEntitySet="x74jp_organization">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="adviser" ColumnName="adviser" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+                <ScalarProperty Name="id_x74jp_registered" ColumnName="id_x74jp_registered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x74jp_registered">
+            <EntityTypeMapping TypeName="Database1Model.x74jp_registered">
+              <MappingFragment StoreEntitySet="x74jp_registered">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="account" ColumnName="account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="x74jp_userTypes">
+            <EntityTypeMapping TypeName="Database1Model.x74jp_userTypes">
+              <MappingFragment StoreEntitySet="x74jp_userTypes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="registered_have_advisers" TypeName="Database1Model.registered_have_advisers" StoreEntitySet="registered_have_advisers">
+            <EndProperty Name="x74jp_advisers">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <EndProperty Name="x74jp_registered">
+              <ScalarProperty Name="id" ColumnName="id_x74jp_registered" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="registered_have_company" TypeName="Database1Model.registered_have_company" StoreEntitySet="registered_have_company">
+            <EndProperty Name="x74jp_company">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <EndProperty Name="x74jp_registered">
+              <ScalarProperty Name="id" ColumnName="id_x74jp_registered" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
